@@ -15,7 +15,6 @@ def getChoice(currentPlayer,board):
         index= int(choice)-1
         if isinstance(board[index], int):
             return index
-        
         print("Your choice is not valid try again.")
 
 def check_winner(currentPlayer,board):
@@ -35,7 +34,7 @@ def check_winner(currentPlayer,board):
 def game_loop():
     currentTurn=1
     board = [i for i in range(1,10) ]
-    while currentTurn<10:
+    while currentTurn <10:
         printBoard(board)
         currentPlayer = "x"if currentTurn %2 !=0 else "o"
         choice = getChoice(currentPlayer,board)
@@ -44,12 +43,12 @@ def game_loop():
             print(f"player {currentPlayer} has won the game")
             printBoard(board)
             break
-        currentTurn+=1
-    if currentTurn ==10:
+        currentTurn+= 1
+    if currentTurn == 10:
         print("It is a draw")
         
 
 while True:
     game_loop()
     command = input("Do you want to play another round?: ")
-    if command !="yes": break
+    if command != "yes": break
