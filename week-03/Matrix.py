@@ -5,13 +5,14 @@ if 2<=number<=9:
     for iteration in range(number):
         nestedList = []
         for num in range(number):
-          nestedList.append(0)
-        list.append(nestedList)
+          list.append(0)
 
 
 print(list)
-for row in list:
-    wholeRow = ""
-    for square in row:
-        wholeRow+= str(square)+" "
-    print(wholeRow)
+
+wholeRow = ""
+for index,item in enumerate(list):
+        wholeRow+= str(item)+" "
+        if (index+1) % number ==0 :
+            print(wholeRow)
+            wholeRow = ""
