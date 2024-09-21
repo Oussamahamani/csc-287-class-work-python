@@ -31,16 +31,25 @@ def check_winner(currentPlayer,board):
     if board[2] == currentPlayer and board[4] == currentPlayer and board[6] == currentPlayer:
         win = True
     return win
-currentTurn=1
-board = [i for i in range(1,10) ]
+
+def game_loop():
+    currentTurn=1
+    board = [i for i in range(1,10) ]
+    while currentTurn<10:
+        printBoard(board)
+        currentPlayer = "x"if currentTurn %2 !=0 else "o"
+        choice = getChoice(currentPlayer,board)
+        board[choice] = currentPlayer
+        if (check_winner(currentPlayer,board)):
+            print(f"player {currentPlayer} has won the game")
+            printBoard(board)
+            break
+        currentTurn+=1
+    if currentTurn ==10:
+        print("It is a draw")
+        
 
 while True:
-    printBoard(board)
-    currentPlayer = "x"if currentTurn %2 !=0 else "o"
-    choice = getChoice(currentPlayer,board)
-    board[choice] = currentPlayer
-    if (check_winner(currentPlayer,board)):
-        print(f"player {currentPlayer} has won the game")
-        break
-    currentTurn+=1
-    
+    game_loop()
+    command = input("Do you want to play another round?: ")
+    if command !="yes": break
