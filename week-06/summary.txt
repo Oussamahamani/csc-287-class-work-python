@@ -1,0 +1,3 @@
+first class has 216
+second class has 184
+third class has 491

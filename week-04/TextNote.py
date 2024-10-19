@@ -12,4 +12,4 @@ class TextNote(Note):
 note_1 = TextNote("functional programming > oop","url-2","lorem text stuff")
 note_1.describe()
 
-    
+
