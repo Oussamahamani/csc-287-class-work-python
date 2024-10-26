@@ -23,7 +23,6 @@ class GoogleSearch(SearchService):
 class DuckDuckGoSearch(SearchService):
     """The Duck Duck Go Search Class."""
 
-    @abstractmethod
     def search(self, q):
         """Search the service with the specified q parameter."""
         webbrowser.open(f"https://duckduckgo.com/?t=h_&q={q}&ia=web", 1)
@@ -32,7 +31,6 @@ class DuckDuckGoSearch(SearchService):
 class RedditSearch(SearchService):
     """The Reddit Search Class."""
 
-    @abstractmethod
     def search(self, q):
         """Search the service with the specified q parameter."""
         webbrowser.open(f"https://www.reddit.com/search/?q={q}&cId=8efb742b-9de7-406d-9a1c-24f483272883&iId=b37885fe-5938-40fb-948a-ff31fde22e08", 1)

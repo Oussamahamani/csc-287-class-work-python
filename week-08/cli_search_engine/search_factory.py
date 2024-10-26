@@ -1,30 +1,28 @@
+"""Example of the Factory Metod Pattern."""
 
-from search_factory import SearchFactory
-from site import GoogleSearch, DuckDuckGoSearch, RedditSearch
-import sys
+class SearchFactory():
 
+    def __init__(self):
+        self._search_engines = {}
 
-# Create the Search Factory and Register Search Engines
-search_factory = SearchFactory()
-search_factory.register("google", GoogleSearch)
-search_factory.register("duck", DuckDuckGoSearch)
-search_factory.register("reddit", RedditSearch)
+    def register(self, search_service_name, class_name):
+        """Register a new music service."""
+        self._search_engines[search_service_name] = class_name
 
+    def get_search_engine(self, search_service_name):
+        """
+        Create object, based on the service name.
 
-def search(search_factory, site_name, query):
-
-    if site_name == "all":
-        google = search_factory.get_service("google")
-        duck = search_factory.get_service("duck")
-        reddit =search_factory.get_service("reddit")
+        This is the factory method.
+        Depending on the search_service_name parameter,
+        a different object is created and returned.
+        """
+        if search_service_name in self._search_engines:
+            service = self._search_engines[search_service_name]
         
-        google.search(query)
-        duck.search(query)
-        reddit.search(query)
-    else:
-        search_service = search_factory.get_service(site_name)
-        search_service.search(query)
+            # Here, we instantiante the object
+            return service()
+        return None
         
-
-
-search(search_factory, sys.argv[1], sys.argv[2])
+        
+    
