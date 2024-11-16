@@ -11,8 +11,9 @@ search_factory.register("duck", DuckDuckGoSearch)
 search_factory.register("reddit", RedditSearch)
 
 
-def search(search_factory, site_name="google", query="tesla"):
+def search(search_factory, site_name, query_list):
 
+    query = " ".join(query_list)
     if site_name == "all":
         print(site_name, query)
         google = search_factory.get_search_engine("google")
@@ -28,4 +29,5 @@ def search(search_factory, site_name="google", query="tesla"):
         
 
 
-search(search_factory, sys.argv[1], sys.argv[2])
+
+search(search_factory, sys.argv[1], sys.argv[2:len(sys.argv)])
