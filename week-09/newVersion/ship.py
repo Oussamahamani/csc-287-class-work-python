@@ -41,7 +41,6 @@ class Ship:
         if self.moving_up and self.rect.top > self.screen_rect.top:
             self.y -= self.settings.ship_speed
         if self.moving_down and self.rect.bottom< self.screen_rect.bottom:
-            print("down")
             self.y += self.settings.ship_speed
         
         if self.control:
